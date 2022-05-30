@@ -1,7 +1,15 @@
-import React from 'react';
+import { Suspense } from 'react';
+import UserResults from '../components/users/UserResults';
 
 function Home() {
-  return <div>Home</div>;
+  return (
+    <>
+      {/* Search component goes here */}
+      <Suspense fallback={<div>Loading...</div>}>
+        <UserResults />
+      </Suspense>
+    </>
+  );
 }
 
 export default Home;

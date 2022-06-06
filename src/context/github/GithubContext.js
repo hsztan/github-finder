@@ -4,7 +4,7 @@ import githubReducer from './GithubReducer';
 const GithubContext = createContext();
 
 const GITHUB_URL = process.env.REACT_APP_GITHUB_URL;
-//const GITHUB_TOKEN = process.env.REACT_APP_GITHUB_TOKEN;
+// const GITHUB_TOKEN = process.env.REACT_APP_GITHUB_TOKEN;
 
 export const GithubProvider = ({ children }) => {
   const initialState = {
@@ -26,7 +26,7 @@ export const GithubProvider = ({ children }) => {
     const res = await fetch(`${GITHUB_URL}search/users?${params}`, {
       method: 'GET',
       // headers: {
-      //   Authorization: `token ${GITHUB_TOKEN} `,
+      //   Authorization: `token ${GITHUB_TOKEN}`,
       // },
     });
     const { items } = await res.json();
@@ -39,11 +39,10 @@ export const GithubProvider = ({ children }) => {
   // Get search results
   const getUser = async (login) => {
     setLoading();
-
     const res = await fetch(`${GITHUB_URL}users/${login}`, {
       method: 'GET',
       // headers: {
-      //   Authorization: `token ${GITHUB_TOKEN} `,
+      //   Authorization: `token ${GITHUB_TOKEN}`,
       // },
     });
     if (res.status === 404) {
